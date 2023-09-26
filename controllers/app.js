@@ -30,7 +30,7 @@ menu_mobile__icon.addEventListener('click', () => {
 
 //SHOPPING CART - PRODUCT DETAIL MENU (CLASE 13)
 const product_detail__icon = document.querySelector('.navbar-shopping-cart');
-const product_detail__menu = document.querySelector('.product-detail');
+const product_detail__menu = document.querySelector('#shopping-cart');
 
 product_detail__icon.addEventListener('click', () => {
 
