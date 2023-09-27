@@ -252,7 +252,6 @@ const render_prices = (product_list) => {
             total_price_value += product_list[data_id - 1].price;
             total_price_info.innerHTML = total_price_value.toFixed(2);
         
-            order_list.innerHTML += html_text;
             products_cart_counter_value += 1;
 
             const html_text = `
@@ -266,6 +265,7 @@ const render_prices = (product_list) => {
                 <img src="./icons/icon_close.png" alt="close" class="erase-product" data-id="${products_cart_counter_value}">
             </div>`
         
+            order_list.innerHTML += html_text;
             products_cart_counter_info.innerHTML = products_cart_counter_value;
 
             if(product_detail__menu.classList.contains('inactive')){
