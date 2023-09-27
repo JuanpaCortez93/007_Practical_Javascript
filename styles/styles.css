@@ -186,10 +186,12 @@ nav {
 
 #shopping-cart {
     width: 360px;
-    padding: 0px 24px;
+    padding: 15px 24px;
     box-sizing: border-box;
     position: absolute;
     right: 0;
+
+    border-radius: 15px;
 
     background-color: var(--white);
 }
@@ -249,6 +251,12 @@ nav {
     font-size: var(--md);
     font-weight: bold;
 }
+
+#shopping-cart .order-list .shopping-cart .inactive {
+    display: none;
+    background-color: #000000;
+}
+
 .primary-button {
     background-color: var(--hospital-green);
     border-radius: 8px;
