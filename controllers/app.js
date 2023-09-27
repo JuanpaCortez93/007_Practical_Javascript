@@ -105,7 +105,22 @@ const product_list = [
         price: 180.99,
         image: 'https://thumbs.dreamstime.com/b/impresora-44688812.jpg',
         description: 'Esta nueva impresora permite imprimir 30 hojas en tan solo 20 segundos'
+    },
+    {
+        id: 5, 
+        name: 'Impresora',
+        price: 153.99,
+        image: 'https://m.media-amazon.com/images/I/51oufHjEoDL._AC_UF1000,1000_QL80_.jpg',
+        description: 'Esta nueva impresora permite imprimir 10 hojas en tan solo 20 segundos'
+    },
+    {
+        id: 6, 
+        name: 'Celular',
+        price: 153.99,
+        image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708',
+        description: 'El último celular al grito de la moda'
     }
+
 ];
 
 render_products(product_list);
@@ -167,7 +182,7 @@ const render_prices = (product_list) => {
         add_product_button[i].addEventListener('click', () => {
             const data_id = add_product_button[i].getAttribute('data-id');
             total_price_value += product_list[data_id - 1].price;
-            total_price_info.innerHTML = total_price_value;
+            total_price_info.innerHTML = total_price_value.toFixed(2);
         
             products_cart_counter_value += 1;
             products_cart_counter_info.innerHTML = products_cart_counter_value;
@@ -192,22 +207,39 @@ const render_prices = (product_list) => {
             //DELETE PRODUCTS
 
             const erase_product__item = document.querySelectorAll('.erase-product');
+            let deleted_values = [];
 
             for(let j = 0; j<erase_product__item.length; j++){
+
                 erase_product__item[j].addEventListener('click', ()=>{
+                    
                     const shopping_cart = document.querySelectorAll('.shopping-cart');
-                    const data_id = shopping_cart[j].getAttribute('data-id');
-                    total_price_value -= product_list[data_id - 1].price;
-                    total_price_info.innerHTML = total_price_value.toFixed(2);
+                    const long = erase_product__item.length - deleted_values.length;
+                    
+                    if(long > j){
+                        const data_id = shopping_cart[j].getAttribute('data-id');
+                        deleted_values.push(j);
+                        shopping_cart[j].remove();
 
-                    shopping_cart[j].remove();
+                        total_price_value -= product_list[data_id - 1].price;
+                        total_price_info.innerHTML = total_price_value.toFixed(2);
+                        products_cart_counter_value -= 1;
+                        products_cart_counter_info.innerHTML = products_cart_counter_value;
 
-                    products_cart_counter_value -= 1;
-                    products_cart_counter_info.innerHTML = products_cart_counter_value;
+                    }else{
 
+                        const data_id = shopping_cart[0].getAttribute('data-id');
+                        shopping_cart[0].remove();
+
+                        total_price_value -= product_list[data_id - 1].price;
+                        total_price_info.innerHTML = total_price_value.toFixed(2);
+                        products_cart_counter_value -= 1;
+                        products_cart_counter_info.innerHTML = products_cart_counter_value;
+                    }
 
                 });
             }
+            
 
         });
     }
@@ -218,7 +250,7 @@ const render_prices = (product_list) => {
         add_product_button__detailed[i].addEventListener('click', () => {
             const data_id = add_product_button__detailed[i].getAttribute('data-id');
             total_price_value += product_list[data_id - 1].price;
-            total_price_info.innerHTML = total_price_value;
+            total_price_info.innerHTML = total_price_value.toFixed(2);
         
             order_list.innerHTML += html_text;
             products_cart_counter_value += 1;
@@ -244,19 +276,35 @@ const render_prices = (product_list) => {
             //DELETE PRODUCTS
 
             const erase_product__item = document.querySelectorAll('.erase-product');
+            let deleted_values = [];
 
             for(let j = 0; j<erase_product__item.length; j++){
+
                 erase_product__item[j].addEventListener('click', ()=>{
+                    
                     const shopping_cart = document.querySelectorAll('.shopping-cart');
-                    const data_id = shopping_cart[j].getAttribute('data-id');
-                    total_price_value -= product_list[data_id - 1].price;
-                    total_price_info.innerHTML = total_price_value.toFixed(2);
+                    const long = erase_product__item.length - deleted_values.length;
+                    
+                    if(long > j){
+                        const data_id = shopping_cart[j].getAttribute('data-id');
+                        deleted_values.push(j);
+                        shopping_cart[j].remove();
 
-                    shopping_cart[j].remove();
+                        total_price_value -= product_list[data_id - 1].price;
+                        total_price_info.innerHTML = total_price_value.toFixed(2);
+                        products_cart_counter_value -= 1;
+                        products_cart_counter_info.innerHTML = products_cart_counter_value;
 
-                    products_cart_counter_value -= 1;
-                    products_cart_counter_info.innerHTML = products_cart_counter_value;
+                    }else{
 
+                        const data_id = shopping_cart[0].getAttribute('data-id');
+                        shopping_cart[0].remove();
+
+                        total_price_value -= product_list[data_id - 1].price;
+                        total_price_info.innerHTML = total_price_value.toFixed(2);
+                        products_cart_counter_value -= 1;
+                        products_cart_counter_info.innerHTML = products_cart_counter_value;
+                    }
 
                 });
             }
