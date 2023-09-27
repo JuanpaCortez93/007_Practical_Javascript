@@ -312,7 +312,9 @@ nav {
 #product-detail {
     width: 360px;
     padding: 24px 24px;
+    margin-top: 65px;
     position: absolute;
+    top: 0;
     right: 0;
 
     background-color: var(--white);
@@ -339,6 +341,10 @@ nav {
     height: 360px;
     object-fit: cover;
     border-radius: 20px;
+}
+
+#product-detail .product-detail-close img:hover {
+    cursor: pointer;
 }
 
 #product-detail .product-info {
